@@ -64,7 +64,7 @@
 #contentB2 {
     margin-top: 80px;
 
-    width: 100%;
+    width: 50%;
 
     display: flex;
     align-items: center;
@@ -100,20 +100,21 @@
 }
 
 #contentB2 .welcome_container .right p{
-    padding: 20px;
+    padding: 30px;
     line-height: 1.4;
     color: white;
     font-weight: 500;
+    text-wrap: pretty;
 }
 
 
 
 #contentB3 {
-    margin-top: 80px;
+    margin-top: 120px;
 
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
     justify-content: center;
     align-items: center;
 }
@@ -135,6 +136,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+#contentB3 ul li img{
+    width: 65px;
 }
 
 #contentB3 .education_container {
@@ -160,7 +165,7 @@
 
 
 #contentB4 {
-    margin-top: 80px;
+    margin-top: 100px;
     
     width: 100vw;
     height: 250px;
@@ -186,9 +191,9 @@
 }
 
 #contentB5 {
-    width: 100%;
+    width: 55%;
     height: 950px;
-    margin-top: 80px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;

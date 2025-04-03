@@ -1,11 +1,16 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+// import { BrowserRouter as Link } from "react-router-dom";
 import "./css/center_info_style.css";
 import styled from 'styled-components';
 
 const Wrap = styled.div`
     width: 100vw;
     margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 
@@ -34,27 +39,27 @@ function Centerinfo() {
                 <ul>
                     <li className="education_container bg_deep">
                         <h4 className="light">Leadership<br />리더십</h4>
-                        <img src="" alt="redership icon" />
+                        <img src="img/readership_icon.png" alt="redership icon" />
                     </li>
                     <li className="education_container bg_light">
                         <h4 className="deep">Communication<br />커뮤니케이션</h4>
-                        <img src="" alt="Communication icon" />
+                        <img src="img/communication_icon.png" alt="Communication icon" />
                     </li>
                     <li className="education_container bg_deep">
                         <h4 className="light">Fitness<br />피트니스</h4>
-                        <img src="" alt="Fitness icon" />
+                        <img src="img/fitness_icon.png" alt="Fitness icon" />
                     </li>
                     <li className="education_container bg_light">
                         <h4 className="deep">Somatology<br />& Kinematics<br />생체학 및<br />운동역학</h4>
-                        <img src="" alt="Somatology icon" />
+                        <img src="img/somatology_icon.png" alt="Somatology icon" />
                     </li>
                     <li className="education_container bg_deep">
                         <h4 className="light">Golf equipment<br />골프장비의<br />고려</h4>
-                        <img src="" alt="equipment icon" />
+                        <img src="img/equipment_icon.png" alt="equipment icon" />
                     </li>
                     <li className="education_container bg_light">
                         <h4 className="deep">Psychological<br />Analysis<br />심리적분석</h4>
-                        <img src="" alt="Psychological icon" />
+                        <img src="img/psychological_icon.png" alt="Psychological icon" />
                     </li>
                 </ul>
             </section>

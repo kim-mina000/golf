@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -21,13 +21,16 @@ const Index = () => {
 
     const navigate = useNavigate();
 
+    // 데이터터
     const lessons = [
-        { id: "A", title: "키즈 프로그램", description: "유아 골프전문 프로그램" },
-        { id: "B", title: "성인그룹레슨", description: "1:2 ~ 1:5 단체 레슨" },
+        { id: "A", title: "키즈 프로그램", description: `멤버스골프아카데미의 특화된
+            유아 골프전문 프로그램` },
+        { id: "B", title: "주니어 프로그램", description: `초등학생을 대상으로 한
+            주니어 골프 전문 프로그램램` },
         { id: "C", title: "성인 프라이빗 레슨", description: `1:1 개인 레슨으로 맞춤형
             교육을 통해 진행되는 프로그램` },
-        { id: "D", title: "체험수업", description: `쉽고 재미있게 배우는
-            원데이클래스` },
+        { id: "D", title: "성인 프리미엄 그룹레슨", description: `1:2 ~ 1:5 단체 레슨
+            매주 짜여진 커리큘럼에 맞춰 진행 ` },
     ];
 
     const instructors = [
@@ -46,6 +49,15 @@ const Index = () => {
         "img/partner_img06.jpg",
         "img/partner_img08.png"
     ];
+
+    // 함수
+    const goToLesson = (des) => {
+        console.log(des);        
+        navigate('/lesson', {
+            state: { title: `${des}` }, // 함수 키 값 전달
+        })
+        
+    }
 
     return (
         <Wrap>
@@ -90,7 +102,7 @@ const Index = () => {
                                     <h3>{lesson.title}</h3>
                                     <p>{lesson.description}</p>
                                     <div className="line"></div>
-                                    <a href="#" onClick={()=> navigate('/lesson')}>더 알아보기</a>
+                                    <a onClick={()=>goToLesson(lesson.title)}>더 알아보기</a>
                                 </div>
                             </li>
                         ))}

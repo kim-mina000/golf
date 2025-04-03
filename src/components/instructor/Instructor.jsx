@@ -145,7 +145,9 @@ const MoreBox = styled.div`
     }
     ul li {
         width: 240px;
+        height: 240px;
         padding : 10px;
+        overflow: hidden;
     }
 
     ul li p {
@@ -156,6 +158,7 @@ const MoreBox = styled.div`
     }
 
     ul li img {
+        width: 100%;
         cursor: pointer;
     }
 `;
@@ -176,7 +179,7 @@ const Instructor = () => {
             name:"조은애",
             name_e:"EUNEA",
             position:"CEO",
-            img:'https://picsum.photos/150/150',
+            img:'img/profile (1).png',
             career : `Lorem ipsum dolor,
 sit amet consectetur adipisicing elit.
 Harum accusantium, delectus sapiente,
@@ -276,7 +279,7 @@ fuga voluptate? Eos, dolorum!`,
                     </InfoBox>
                     <ImgBox>
                         <span>{instructorInfo.find(item => item.index === selectInstructor).name_e}</span>
-                        <img src="https://picsum.photos/400/500" alt="더미이미지" />
+                        <img src={instructorInfo.find(item => item.index === selectInstructor).img} alt="프로필이미지" />
                     </ImgBox>
                 </Middle>
                 <MoreBox>

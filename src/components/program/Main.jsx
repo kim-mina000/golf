@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation  } from "react-router-dom";
 
 // 아이콘
 import { IoMdHome } from "react-icons/io";
@@ -105,79 +105,51 @@ const DownMenu = styled.div`
     }
 `;
 
-const FirstDownMenu = styled(DownMenu)`
-    left: 61px;
-`;
-
 const SecondDownMenu = styled(DownMenu)`
     left: 292px;
 `;
 
 
 function Main() {
+    const location = useLocation();
+    const data = location.state?.title || "키즈 프로그램";
+    
 
-    const [firstSelected, setFirstSelected] = useState("레슨 프로그램");
-    const [secondSelected, setSecondSelected] = useState("유아프로그램");
-
-    const [firstShow, setFirstshow] = useState(false);
+    const [secondSelected, setSecondSelected] = useState(data);
     const [secondShow, setSecondshow] = useState(false);
 
-    useEffect ( () => {
-    },[firstSelected,secondSelected,firstShow,secondShow])
 
-    
-    const firstCategory = [
-        {
-            index:1,
-            category:"센터소개"
-        },{
-            index:2,
-            category:"인스트럭터"
-        },
-        {
-            index:3,
-            category:"레슨 프로그램"
-        },
-        {
-            index:4,
-            category:"포토갤러리"
-        },
-        {
-            index:5,
-            category:"커뮤니티"
-        },
-    ];
+    const navigate = useNavigate();
+
+    useEffect ( () => {
+    },[secondSelected,secondShow])
+
     
     const secondCategory = [
         {
             index:1,
-            category:"유아프로그램",
+            category:"키즈 프로그램",
             page:<KidsProgram />
         },{
             index:2,
-            category:"주니어프로그램",
+            category:"주니어 프로그램",
             page:<JuniorProgram />
         },
         {
             index:3,
-            category:"성인프라이빗그룹레슨",
-            page:<AdultGroupLessons />
+            category:"성인 프라이빗 레슨",
+            page:<AdultPrivateLessons />
         },
         {
             index:4,
-            category:"성인프라이빗레슨",
-            page:<AdultPrivateLessons />
+            category:"성인 프리미엄 그룹레슨",
+            page:<AdultGroupLessons />
         }
     ];
     
     function changeSelect(newCategory) {
-        if (firstCategory.some(item => item.category === newCategory)) {
-            setFirstSelected(newCategory);
-            setFirstshow(!firstShow);
-        } else {
             setSecondSelected(newCategory);
             setSecondshow(!secondShow);
-        }
     }
 
     function toggle(value, setValue) {
@@ -192,18 +164,11 @@ function Main() {
             </PhotoContainer>
             <InnerContainer>
                 <SelectBar>
-                    <StyledIoMdHome onClick={()=>Navigate('/')} />
-                    <h2 onClick={()=>{toggle(firstShow,setFirstshow)}}>{firstSelected}<IoIosArrowDown/></h2>
+                    <StyledIoMdHome onClick={()=>navigate('/')} />
+                    <h2>레슨 프로그램</h2>
                     <h2 onClick={()=>{toggle(secondShow,setSecondshow)}}>{secondSelected}<IoIosArrowDown/></h2>
                 </SelectBar>
                 
-                {firstShow && <FirstDownMenu>
-                    <ul>
-                        {firstCategory.map( item => (
-                            <li key={item.index} onClick={() => changeSelect(item.category)} >{item.category}</li>
-                        ))}
-                    </ul>
-                </FirstDownMenu>}
                 {secondShow && <SecondDownMenu>
                     <ul>
                         {secondCategory.map( item => (
