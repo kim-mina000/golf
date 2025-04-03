@@ -1,0 +1,251 @@
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* contents */
+/* 공통조건 */
+.line {
+    width: 250px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.bold {
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    
+}
+
+.light {
+    color: #f9f9f7;
+}
+
+.deep {
+    color: #1c2716;
+}
+
+.bg_light {
+    background-color: #f9f9f7;
+}
+
+.bg_deep {
+    background-color: #1c2716;
+}
+
+
+
+/* ---------------------------- */
+#contentB1 {
+    width: 100vw;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+#contentB1 img{
+    width: 100%;
+    object-fit: cover;
+}
+
+#contentB2 {
+    margin-top: 80px;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: none;
+
+}
+
+#contentB2 #welcome_decoration {
+    width: 270px;
+    height: 20px;
+    background-color: #b9bdb8;
+    position: absolute;
+    z-index: -10;
+    top: 50px;
+    left: 10px;
+}
+
+#contentB2 .welcome_container {
+    position: relative;
+    display: flex;
+}
+
+#contentB2 .welcome_container .left{
+    
+    margin: 0 1.5rem;
+}
+
+#contentB2 .welcome_container .right{
+    margin-top: 1.5rem;
+    background-color: #1c2716;
+}
+
+#contentB2 .welcome_container .right p{
+    padding: 20px;
+    line-height: 1.4;
+    color: white;
+    font-weight: 500;
+}
+
+
+
+#contentB3 {
+    margin-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#contentB3 img {
+    width: 150px;
+}
+
+#contentB3>h3 {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+#contentB3 ul {
+    width: 700px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#contentB3 .education_container {
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#contentB3 .education_container h4{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px;
+}
+
+#contentB3 .education_container img {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+
+
+#contentB4 {
+    margin-top: 80px;
+    
+    width: 100vw;
+    height: 250px;
+    text-align: center;
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    word-break: keep-all;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #1c2716;
+}
+
+#contentB4 p {
+    width: 70%;
+    line-height: 2;
+}
+
+#contentB5 {
+    width: 100%;
+    height: 950px;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contentB5 .route_container {
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#contentB5 .route_container .right {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    text-align: left;
+}
+
+#contentB5 .route_container .right .icon_container{
+    display: flex;
+    align-items: center;
+}
+
+#contentB5 .route_container .right .icon_container img{
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+}
+
+#contentB5 .route_container .right .icon_container h5{
+    font-weight: bold;
+}
+
+#contentB5 .route_container .right .icon_container p{
+    margin-top: 0.5rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+#contentB5 .map_container {
+    margin-top: 100px;
+    width: 80%;
+    height: 40%;
+
+    overflow: hidden;
+}
+
+#contentB5 .map_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
