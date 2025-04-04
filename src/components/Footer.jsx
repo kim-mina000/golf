@@ -9,7 +9,6 @@ const Wrap = styled.footer`
     `;
 
 const Container = styled.div`
-/* 여기서 가운데 정렬이 안들어감감 */
     width: 1200px;
     display: flex;
     align-items: center;

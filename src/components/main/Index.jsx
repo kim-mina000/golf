@@ -1,14 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 
+// css
 import './css/main_style.css';
 
+// swiper 관련
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/autoplay";
+import Button from '../etc/Button';
+import MobileContent2 from './MobileContent2';
+import ButtonBlack from '../etc/ButtonBlack';
 
 
 const Wrap = styled.div`
@@ -17,11 +23,12 @@ const Wrap = styled.div`
 `;
 
 
-const Index = () => {
+const Index = ({isMobile}) => {
 
     const navigate = useNavigate();
 
-    // 데이터터
+
+    // 데이터
     const lessons = [
         { id: "A", title: "키즈 프로그램", description: `멤버스골프아카데미의 특화된
             유아 골프전문 프로그램` },
@@ -79,17 +86,27 @@ const Index = () => {
             </Swiper>
 
             <section id="content1">
-                <h2 className="title">센터소개</h2>
+                {isMobile || <h2 className="title">센터소개</h2>}
+                {isMobile || 
                 <div className="pic">
-                    <img src="/img/center_info2.png" alt="center image" />
+                    <img src="/img/center_info2.png" alt="center_img" />
                 </div>
-                <p>
+                }
+                <p className={isMobile?"mobile_p":"p"}>
                     멤버스 골프 아카데미는 LPGA 티칭 메뉴얼을 기반으로 한 <br />
                     <span className="strong">체계적인 커리큘럼과 검증된 프로 강사진의 맞춤형 레슨을 통해</span> <br />
                     즐겁고 효과적인 골프 경험을 제공합니다.
                 </p>
+                {isMobile && 
+                    <div className="mobilePic">
+                        <img src="/img/center_info2.png" alt="center_img" />
+                        <Button className="mybutton" text="자세히보기"/>
+                    </div>
+                }
             </section>
 
+            {isMobile ? <MobileContent2 lessons={lessons} />
+            :
             <section id="content2">
                 <div className="content2_wrap">
                     <h2 className="title">프로그램</h2>
@@ -108,28 +125,31 @@ const Index = () => {
                         ))}
                     </ul>
                 </div>
-            </section>
+            </section>}
 
             <section id="content3">
                 <h2 className="title">인스트럭터</h2>
-                <h4 className="subtitle">국내외에서 검증된 프로 골퍼들로 구성된 강사진이 최고의 골프 경험을 선사합니다.</h4>
+                {isMobile ||
+                    <h4 className="subtitle">국내외에서 검증된 프로 골퍼들로 구성된 강사진이 최고의 골프 경험을 선사합니다.</h4>
+                }
                 <ul className="instructor">
                     {instructors.map((inst, index) => (
                         <li className="profile" key={index}>
-                            <a href="#" onClick={()=> navigate('/instructor')}>
+                            <div onClick={()=> navigate('/instructor')}>
                                 <img src={inst.img} alt="profile" />
-                                <p className="profile_name">{inst.name}</p>
-                            </a>
+                                {isMobile || <p className="profile_name">{inst.name}</p>}
+                            </div>
                         </li>
                     ))}
                 </ul>
+                {isMobile && <ButtonBlack className="addStyle" text={"더보기"}/>}
             </section>
 
             <section id="content4">
                 <div className="content4_container">
                     <h2 className="title">PARTNER</h2>
                     <h4 className="subtitle">멤버스골프아카데미와 함께하는 파트너입니다.</h4>
-                    <ul className="partner_container">
+                    <ul className={isMobile? "mobile_partner_container": "partner_container"}>
                         {partners.map((imgSrc, index) => (
                             <li key={index}><img src={imgSrc} alt="partner company logo" /></li>
                         ))}

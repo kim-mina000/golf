@@ -6,20 +6,16 @@ const Wrap = styled.div`
     margin: auto;
 `;
 
-
-
-const Header_wrap = styled.header`
+const HeaderWrap = styled.header`
     max-width: 1200px;
     height: 120px;
 
     display: flex;
     align-items: center;
     margin: auto;
-
-
 `;
 
-const Menu_container = styled.div`
+const MenuContainer = styled.div`
     width: 65%;
     display: flex;
     justify-content: space-around;
@@ -56,17 +52,17 @@ const Logo = styled.div`
 function Header() {
 
     const navigate = useNavigate();
-
+    
     return (
         <Wrap>
-            <Header_wrap>
+            <HeaderWrap>
                 <Logo onClick={()=> navigate("/")}><img src="img/LOGO.png" alt="logo" /></Logo>
-                <Menu_container>
+                <MenuContainer>
                     <Link to="/centerInfo">센터소개</Link>
                     <Link to="/lesson">레슨프로그램</Link>
                     <Link to="/instructor">인스트럭터</Link>
-                </Menu_container>
-            </Header_wrap>
+                </MenuContainer>
+            </HeaderWrap>
         </Wrap>
     );
     

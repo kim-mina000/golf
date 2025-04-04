@@ -93,7 +93,9 @@ function Centerinfo() {
                     </div>
                 </div>
                 <div className="map_container">
-                    <img src="img/map.png" alt="map" />
+                    <img className="map" src="img/map.png" alt="map" />
+                    <img className="location" src="img/location_icon.png" alt="location_icon" />
+                    <div className="shadow"></div>
                 </div>
             </section>
         
