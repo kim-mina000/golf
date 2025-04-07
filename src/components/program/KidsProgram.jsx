@@ -1,5 +1,4 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 
 const TitleDiv = styled.div`
@@ -21,7 +20,8 @@ const TitleDiv = styled.div`
     }
     
     @media (max-width:599px) {
-        width: 300px;
+        width: 50%;
+        height: 100px;
     }
 `;
 
@@ -37,7 +37,7 @@ const ImageDiv = styled.div`
     }
 
     @media (max-width:599px) {
-        width: 300px;
+        width: 100%;
     }
 
 `;
@@ -57,6 +57,15 @@ const ContentDiv = styled.div`
 
     h4 {
         font-size: 1.5rem;
+    }
+
+    @media (max-width:599px) {
+        width: 80%;
+        margin: auto;
+        line-height: 1.5;
+
+        h2 { font-size: 1.5rem; margin-top:40px}
+        h4 { font-size: 1.2rem; }
     }
 
 `;
@@ -98,6 +107,25 @@ const DetailDiv = styled.div`
     p {
         white-space: nowrap;
     }
+
+    @media (max-width:1024px) {
+        width: 80%;
+        line-height: 1.3;
+        box-sizing: border-box;
+        padding-left: 0;
+        
+        br { display: none; }
+
+        h2 { font-size: 1.8rem; }
+        h4 { font-size: 0.9rem; }   
+        p { white-space: pre-wrap; text-align:center; word-break:normal; padding:0 10px 0 10px; font-size:0.8rem; }
+
+        &>div {
+            height: 150px;
+            display: flex;
+            align-items: center;
+        }
+    }
 `;
 
 const Circle = styled.div`
@@ -108,12 +136,17 @@ const Circle = styled.div`
     position: absolute;
     left: -20px;
     top: -10px;
+
+    @media (max-width:599px) {
+        top: 0;
+        left: 40px;
+    }
 `;
 
 
 const KidsProgram = () => {
 
-    const isMobile = MediaQuery();
+    // const isMobile = MediaQuery();
     return (
         <>
             <TitleDiv>

@@ -32,9 +32,9 @@ const MyButton = styled.div`
 `;
 
 
-function Button({ text, onClick}) {
+function Button({ text}) {
     return (
-        <MyButton onClick={() => onClick}>
+        <MyButton>
             <p>{text}</p><FaLongArrowAltRight />
         </MyButton>
     );

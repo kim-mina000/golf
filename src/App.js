@@ -16,7 +16,7 @@ import Centerinfo from "./components/centerInfo/Centerinfo";
 
 function App() {
 
-  const isMobile = useMediaQuery({ query: '(max-width: 599px'});
+  const isMobile = useMediaQuery({ query: '(max-width: 599px)'});
 
   return (
     <BrowserRouter>

@@ -55,9 +55,19 @@ const MobileHeader = () => {
     return (
         <>
             <Wrap>
-                <div><img onClick={()=> navigateEvent("")} src={`${showMenu}` ? "img/LOGO_row_white.png" : "img/LOGO_row.png"} alt="LOGO_row" /></div>
-                <StyledCiMenuFries onClick={()=> setShowMenu(!showMenu)} showMenu={showMenu} />
+                <div>
+                    <img 
+                        onClick={() => navigateEvent("")} 
+                        src={showMenu ? "img/LOGO_row_white.png" : "img/LOGO_row.png"} 
+                        alt="LOGO" 
+                    />
+                </div>
+                <StyledCiMenuFries 
+                    onClick={() => setShowMenu(!showMenu)} 
+                    showMenu={showMenu} 
+                />
             </Wrap>
+
             {showMenu && <MobileMenu 
                 showMenu={showMenu}
                 navigateEvent={navigateEvent}

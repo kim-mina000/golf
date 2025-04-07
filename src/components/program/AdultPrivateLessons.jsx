@@ -18,15 +18,26 @@ const TitleDiv = styled.div`
         bottom: 0;
         right: 0;
     }
+    @media (max-width:599px) {
+        width: 50%;
+        height: 130px;
+    }
 `;
 
 const ImageDiv = styled.div`
     width: 100%;
-    height: 350px;
+    max-height: 350px;
     margin-top: 50px;
-    
-    background-color: #999;
-    /* background-image: url('../../img/kids_program_timg.jpg'); */
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width:599px) {
+        width: 100%;
+    }
 `;
 
 const ContentDiv = styled.div`
@@ -46,6 +57,18 @@ const ContentDiv = styled.div`
         font-size: 1.5rem;
     }
 
+    @media (max-width:599px) {
+        width: 80%;
+        margin: auto;
+        line-height: 1.5;
+
+
+
+        br { display:none; }
+        h2 { font-size: 1.5rem; margin-top:40px}
+        h4 { font-size: 1.2rem; }
+    }
+
 `;
 
 const DetailDiv = styled.div`
@@ -63,13 +86,10 @@ const DetailDiv = styled.div`
         width: 25%;
         height: 250px;
         text-align: start;
-        /* display: flex;
-        align-items: flex-start;
-        flex-direction: column; */
     }
 
     ul li>div {
-        position: absolute;
+        position: absolute; 
         bottom: 0;
         line-height: 1.3;
         padding: 10px;
@@ -85,6 +105,7 @@ const DetailDiv = styled.div`
     }
 
     ul li::before{
+        /* 선요소 */
         content: "";
         display: block;
         width: 1px;
@@ -93,6 +114,27 @@ const DetailDiv = styled.div`
 
         position: absolute;
         bottom: 0;
+    }
+
+    @media (max-width:599px) {
+        ul {
+            flex-direction: column;
+        }
+        ul li {
+            text-align: center;
+            width: 100%;
+            height: auto;
+
+        }
+        ul li::before {
+            display: none;
+        }
+        ul li>div {
+            margin-top: 80px;
+            position: relative;
+        }
+
+        
     }
 `;
 
@@ -114,6 +156,9 @@ const Circle = styled.div`
     position: absolute;
     bottom: 0;
     left: -4px;
+    @media (max-width:599px) {
+        display: none;
+    }
 `;
 
 

@@ -104,10 +104,18 @@ const DownMenu = styled.div`
     .hidden {
         display: none;
     }
+
+    @media (max-width: 599px) {
+        width: 250px;
+    }
 `;
 
 const SecondDownMenu = styled(DownMenu)`
     left: 292px;
+
+    @media (max-width: 599px) {
+        left: 159px;
+    }
 `;
 
 
@@ -167,7 +175,7 @@ function Main({isMobile}) {
             <InnerContainer>
                 <SelectBar>
                     <StyledIoMdHome onClick={()=>navigate('/')} />
-                    <h2>레슨 프로그램</h2>
+                    {isMobile || <h2>레슨 프로그램</h2>}
                     <h2 onClick={()=>{toggle(secondShow,setSecondshow)}}>{secondSelected}<IoIosArrowDown/></h2>
                 </SelectBar>
                 

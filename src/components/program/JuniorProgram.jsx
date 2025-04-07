@@ -18,15 +18,26 @@ const TitleDiv = styled.div`
         bottom: 0;
         right: 0;
     }
+    @media (max-width:599px) {
+        width: 50%;
+        height: 100px;
+    }
 `;
 
 const ImageDiv = styled.div`
     width: 100%;
-    height: 350px;
+    max-height: 350px;
     margin-top: 50px;
-    
-    background-color: #999;
-    /* background-image: url('../../img/kids_program_timg.jpg'); */
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width:599px) {
+        width: 100%;
+    }
 `;
 
 const ContentDiv = styled.div`
@@ -36,6 +47,7 @@ const ContentDiv = styled.div`
     flex-direction: column;
     gap: 1.2rem;
     text-align: center;
+    line-height: 1.3;
 
     h2 {
         font-weight: bold;
@@ -44,6 +56,18 @@ const ContentDiv = styled.div`
 
     h4 {
         font-size: 1.5rem;
+    }
+
+    @media (max-width:599px) {
+        width: 80%;
+        margin: auto;
+        line-height: 1.5;
+
+        white-space: pre-line;
+        word-break: keep-all;
+
+        h2 { font-size: 1.5rem; margin-top:40px}
+        h4 { font-size: 1.2rem; }
     }
 
 `;
@@ -67,10 +91,12 @@ const DetailDiv = styled.div`
         display: flex;
         flex-direction: column;
         align-items: start;
-        gap: 15px;
         text-align: start;
         position: relative;
     };
+    &>div>div {
+        line-height: 1.3;
+    }
 
     h2 {
         font-size: 3rem;
@@ -80,10 +106,25 @@ const DetailDiv = styled.div`
     h4 {
         font-size: 1.2rem;
         font-weight: bold;
+        margin-bottom: 10px;
     }
 
     p {
         white-space: nowrap;
+    }
+
+    @media (max-width:1024px) {
+        flex-direction: column;
+        align-items: start;
+
+        &>div {
+            flex-direction: row;
+        }
+        &>div>div {
+            margin-left: 15px;
+        }
+
+
     }
 `;
 
@@ -100,7 +141,7 @@ const Circle = styled.div`
 
 const JuniorProgram = () => {
     return (
-<>
+        <>
             <TitleDiv>
                 <h2>JUNIOR<br/>PROGRAM</h2>
             </TitleDiv>
@@ -115,38 +156,50 @@ const JuniorProgram = () => {
                 <div>
                     <Circle/>
                     <h2>01</h2>
-                    <h4>건강</h4>
-                    <p>골프를 통해 활기차고 건강한 삶,<br/>운동 능력을 향상시킵니다.</p>
+                        <div>   
+                            <h4>건강</h4>
+                            <p>골프를 통해 활기차고 건강한 삶,<br/>운동 능력을 향상시킵니다.</p>
+                        </div>
                 </div>
                 <div>
                     <Circle/>
                     <h2>02</h2>
-                    <h4>도전</h4>
-                    <p>도전활동에 필요한 기본방법을 배우고,<br/>스스로 실천할 수 있는 힘을 기릅니다.</p>
+                    <div>
+                        <h4>도전</h4>
+                        <p>도전활동에 필요한 기본방법을 배우고,<br/>스스로 실천할 수 있는 힘을 기릅니다.</p>
+                    </div>
                 </div>
                 <div>
                     <Circle/>
                     <h2>03</h2>
-                    <h4>경쟁</h4>
-                    <p>건강한 경쟁심과 협동심을<br/>함께 키워나가는 과정입니다.</p>
+                    <div>
+                        <h4>경쟁</h4>
+                        <p>건강한 경쟁심과 협동심을<br/>함께 키워나가는 과정입니다.</p>
+                    </div>
                 </div>
                 <div>
                     <Circle/>
                     <h2>04</h2>
-                    <h4>만남</h4>
-                    <p>특별한 사회적 기회와<br/>교우관계를 제공합니다.</p>
+                    <div>
+                        <h4>만남</h4>
+                        <p>특별한 사회적 기회와<br/>교우관계를 제공합니다.</p>
+                    </div>
                 </div>
                 <div>
                     <Circle/>
                     <h2>05</h2>
-                    <h4>표현</h4>
-                    <p>자기표현과 의사소통능력<br/>향상에 도움을 줍니다.</p>
+                    <div>
+                        <h4>표현</h4>
+                        <p>자기표현과 의사소통능력<br/>향상에 도움을 줍니다.</p>
+                    </div>
                 </div>
                 <div>
                     <Circle/>
                     <h2>06</h2>
-                    <h4>여가</h4>
-                    <p>놀이를 통해 골프를 이해하고,<br/>자연과 친해지는 경험을 선사합니다.</p>
+                    <div>
+                        <h4>여가</h4>
+                        <p>놀이를 통해 골프를 이해하고,<br/>자연과 친해지는 경험을 선사합니다.</p>
+                    </div>
                 </div>
             </DetailDiv>
             

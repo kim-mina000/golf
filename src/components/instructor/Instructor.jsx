@@ -1,42 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
 
 const Wrap = styled.section`
-
     width: 100vw;
     margin: auto;
 `;
 
 const Container = styled.div`
-width: 1200px;
-height: auto;
-margin: auto;
+  width: 1200px;
+  max-width: 95%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-
-&>h4 {
+  & > h4 {
     font-weight: bold;
-    padding: 10px;
-    font-size: 1.5rem;
     padding: 20px;
-}
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    & > h4 {
+      font-size: 1.2rem;
+      padding: 15px;
+    }
+  }
 `;
 
 const ImgDiv = styled.div`
-    width: 100%;
-    height: 350px;
-    margin-bottom: 80px;
+  width: 100%;
+  height: 350px;
+  margin-bottom: 80px;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    height: 200px;
+    margin-bottom: 40px;
+  }
 `;
 
 const Line = styled.div`
@@ -46,11 +53,16 @@ const Line = styled.div`
 `;
 
 const Middle = styled.div`
-    margin-top: 80px;
-    border-top: 1px solid rgba(0,0,0,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.3);
-    width: 100%;
-    display: flex;
+  margin-top: 80px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 40px;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -61,23 +73,36 @@ const InfoBox = styled.div`
     div:first-child {
         width: 100%;
         height: 20%;
-        
         display: flex;
-        
         position: relative;
+
         h2 {
             padding-left: 40px;
             padding-top: 20px;
-
             font-weight: bold;
             font-size: 2.5rem;
         }
-        
+
         span {
             padding-left: 15px;
             padding-top: 45px;
         }
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        h2 {
+            font-size: 1.5rem;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        span {
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 20px;
+        }
     }
+  }
 
     /* 약력 */
     div:nth-child(2){
@@ -102,68 +127,104 @@ const InfoBox = styled.div`
             margin-left: 15px;
             line-height: 1.5;
         }
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      span {
+        padding-left: 20px;
+        padding-top: 10px;
+      }
+
+      p {
+        padding: 10px 20px;
+        margin: 0;
+      }
     }
-    
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
+
 const ImgBox = styled.div`
     width: 40%;
     border-left: 1px solid rgba(0,0,0,0.3);
     position: relative;
-    object-fit: cover;
     
     img {
         width: 100%;
         height: 100%;
-        
+        object-fit: cover;
     }
+
     span {
         position: absolute;
         padding: 10px;
         color: #555;
-
         top: 10px;
         left: 10px;
-        
         font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
     }
 `;
 
 const MoreBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  h4 {
+    font-weight: bold;
+    padding: 10px 40px 0 40px;
+  }
+
+  ul {
     width: 100%;
+    padding-top: 10px;
     display: flex;
-    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    h4 {
-        font-weight: bold;
-        padding: 10px 40px 0 40px;
-    }
-    ul {
-        width: 100%;
-        padding-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-    }
+  ul li {
+    width: 240px;
+    height: 240px;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  ul li p {
+    text-align: start;
+    padding-bottom: 10px;
+    font-weight: bold;
+  }
+
+  ul li img {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
     ul li {
-        width: 240px;
-        height: 240px;
-        padding : 10px;
-        overflow: hidden;
+      width: 45%;
+      height: auto;
     }
+  }
 
-    ul li p {
-        text-align: start;
-        padding-bottom: 10px;
-        font-weight: bold;
-
+  @media (max-width: 480px) {
+    ul li {
+      width: 90%;
     }
-
-    ul li img {
-        width: 100%;
-        cursor: pointer;
-    }
+  }
 `;
-
-
 
 const Instructor = () => {
 
