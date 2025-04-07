@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 
 // css
 import './css/main_style.css';

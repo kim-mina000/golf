@@ -1,4 +1,5 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 
 const TitleDiv = styled.div`
@@ -18,15 +19,27 @@ const TitleDiv = styled.div`
         bottom: 0;
         right: 0;
     }
+    
+    @media (max-width:599px) {
+        width: 300px;
+    }
 `;
 
 const ImageDiv = styled.div`
     width: 100%;
-    height: 350px;
+    max-height: 350px;
     margin-top: 50px;
     
-    background-color: #999;
-    /* background-image: url('../../img/kids_program_timg.jpg'); */
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width:599px) {
+        width: 300px;
+    }
+
 `;
 
 const ContentDiv = styled.div`
@@ -99,12 +112,14 @@ const Circle = styled.div`
 
 
 const KidsProgram = () => {
+
+    const isMobile = MediaQuery();
     return (
         <>
             <TitleDiv>
                 <h2>KIDS<br/>PROGRAM</h2>
             </TitleDiv>
-            <ImageDiv><img src="img/kids_program_timg.jpg" alt="kid lesson program photo" /></ImageDiv>
+            <ImageDiv><img src="img/kids_program_timg.jpg" alt="kid lesson program" /></ImageDiv>
             <ContentDiv>
                 <h2>유아 프로그램</h2>
                 <h4>4세~7세 유아를 대상으로 골프에 친숙해질 수 있는 경험을 제공합니다.</h4>

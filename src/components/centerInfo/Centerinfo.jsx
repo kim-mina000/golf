@@ -15,6 +15,7 @@ const Wrap = styled.div`
 
 
 function Centerinfo() {
+
     return(
         <Wrap>
             <section id="contentB1">

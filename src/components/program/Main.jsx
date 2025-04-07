@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useLocation  } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 // 아이콘
 import { IoMdHome } from "react-icons/io";
@@ -25,17 +26,17 @@ const Warp = styled.div`
 
 const PhotoContainer = styled.div`
     width: 100vw;
-    height: 500px;
+    height: 350px;
 
     img {
         width: 100%;
-        height: 535px;
-        background-size: contain;
+        height: 350px;
+        background-size: cover;
     }
 `;
 
 const InnerContainer = styled.div`
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
     position: relative;
 `;
@@ -110,9 +111,10 @@ const SecondDownMenu = styled(DownMenu)`
 `;
 
 
-function Main() {
+function Main({isMobile}) {
     const location = useLocation();
     const data = location.state?.title || "키즈 프로그램";
+
     
 
     const [secondSelected, setSecondSelected] = useState(data);
@@ -180,7 +182,7 @@ function Main() {
                 {/* 페이지 출력 */}
                 {secondCategory.filter(item => item.category === secondSelected).map(item => item.page)}
             </InnerContainer>
-            <FloatingMenu />
+            {isMobile || <FloatingMenu />}
         </Warp>
     );
     

@@ -23,8 +23,8 @@ function App() {
       {isMobile? <MobileHeader /> : <Header />}
       <Routes>
         <Route path='/' element={<Index isMobile={isMobile}/>}/>
-        <Route path='/centerInfo' element={<Centerinfo/>}/>
-        <Route path='/lesson' element={<Main/>}/>
+        <Route path='/centerInfo' element={<Centerinfo />}/>
+        <Route path='/lesson' element={<Main isMobile={isMobile}/>}/>
         <Route path='/instructor' element={<Instructor/>}/>
       </Routes>
       {isMobile? <MobileFooter/> : <Footer />}

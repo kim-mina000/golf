@@ -4,15 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 const Wrap = styled.div`
     width: 100vw;
     margin: auto;
-`;
+    `;
 
 const HeaderWrap = styled.header`
     max-width: 1200px;
     height: 120px;
-
+    
     display: flex;
     align-items: center;
     margin: auto;
+    z-index: 99;
 `;
 
 const MenuContainer = styled.div`

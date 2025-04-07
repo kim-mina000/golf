@@ -114,11 +114,12 @@ const MobileContent2 = ({lessons}) => {
                 <Swiper
                     className='swipper_container'
                     modules={[Navigation, Pagination, A11y]}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
                 >   
                     <ul>
                         {lessons.map((lesson, index) => (
+                            // 냥 key값 중복됨됨
                             <li key={index}>
                                 <StyledSwiperSlide>
                                     <div>
