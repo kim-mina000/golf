@@ -9,7 +9,7 @@ const Wrap = styled.footer`
     `;
 
 const Container = styled.div`
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
     align-items: center;
 
