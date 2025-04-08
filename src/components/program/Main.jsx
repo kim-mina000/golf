@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate, useLocation  } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
 // 아이콘
 import { IoMdHome } from "react-icons/io";
@@ -13,7 +12,6 @@ import KidsProgram from "./KidsProgram";
 import JuniorProgram from "./JuniorProgram";
 import AdultPrivateLessons from "./AdultPrivateLessons";
 import AdultGroupLessons from "./AdultGroupLessons";
-import FloatingMenu from "../../FloatingMenu";
 
 const Warp = styled.div`
     width: 100vw;
@@ -190,7 +188,7 @@ function Main({isMobile}) {
                 {/* 페이지 출력 */}
                 {secondCategory.filter(item => item.category === secondSelected).map(item => item.page)}
             </InnerContainer>
-            {isMobile || <FloatingMenu />}
+
         </Warp>
     );
     

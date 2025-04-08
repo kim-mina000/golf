@@ -17,6 +17,8 @@ const Wrap = styled.div`
     align-items: center;
     text-align: center;
 
+    z-index: 99;
+
     img {
         width: 70%;
     }
