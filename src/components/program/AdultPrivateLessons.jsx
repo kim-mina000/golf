@@ -18,7 +18,7 @@ const TitleDiv = styled.div`
         bottom: 0;
         right: 0;
     }
-    @media (max-width:599px) {
+    @media (max-width:1024px) {
         width: 50%;
         height: 130px;
     }
@@ -35,7 +35,7 @@ const ImageDiv = styled.div`
         object-fit: cover;
     }
 
-    @media (max-width:599px) {
+    @media (max-width:1024px) {
         width: 100%;
     }
 `;
@@ -57,7 +57,7 @@ const ContentDiv = styled.div`
         font-size: 1.5rem;
     }
 
-    @media (max-width:599px) {
+    @media (max-width:1024px) {
         width: 80%;
         margin: auto;
         line-height: 1.5;
@@ -116,7 +116,7 @@ const DetailDiv = styled.div`
         bottom: 0;
     }
 
-    @media (max-width:599px) {
+    @media (max-width:1024px) {
         ul {
             flex-direction: column;
         }
@@ -156,7 +156,7 @@ const Circle = styled.div`
     position: absolute;
     bottom: 0;
     left: -4px;
-    @media (max-width:599px) {
+    @media (max-width:1024px) {
         display: none;
     }
 `;

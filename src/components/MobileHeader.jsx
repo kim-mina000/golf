@@ -7,7 +7,7 @@ import MobileMenu from './MobileMenu';
 
 const Wrap = styled.header`
     width: 90vw;
-    height: 50px;
+    height: 60px;
     margin: auto;
     
     display: flex;

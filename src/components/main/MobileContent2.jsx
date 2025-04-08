@@ -104,8 +104,7 @@ const StyledBox = styled.div`
 `;
 
 
-const MobileContent2 = ({lessons}) => {
-
+const MobileContent2 = ({lessons, goToLesson}) => {
     return (
         <Wrap>
             <h2>프로그램</h2>
@@ -119,10 +118,10 @@ const MobileContent2 = ({lessons}) => {
                 >   
                     <ul>
                         {lessons.map((lesson, index) => (
-                            // 냥 key값 중복됨됨
+                            // 냥 key값 중복됨
                             <li key={index}>
                                 <StyledSwiperSlide>
-                                    <div>
+                                    <div onClick={()=>goToLesson(lesson.title)}>
                                         <StyledBox><p>{lesson.id}</p></StyledBox>
                                         <h3>{lesson.title}</h3>
                                         <p>{lesson.description}</p>

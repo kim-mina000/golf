@@ -101,7 +101,7 @@ const DetailDiv = styled.div`
         img {
             position: absolute;
             width: 100%;
-            height: auto;
+            height: 100%; 
             object-fit: cover;
 
             left: 50%;
@@ -185,7 +185,7 @@ const AdultGroupLessons = () => {
             <TitleDiv>
                 <h2>Adult<br/>Premium<br/>Group<br/>Lessons</h2>
             </TitleDiv>
-            <ImageDiv><img src="img/adult_group_lessons_timg.jpg" alt="kid lesson program photo" /></ImageDiv>
+            <ImageDiv><img src="img/adult_group_lessons_timg.jpg" alt="kid lesson program" /></ImageDiv>
             <ContentDiv>
                 <h2>성인 프라이빗 그룹레슨</h2>
                 <h4>커리큘럼에 맞춰 진행되는 단체 골프 레슨</h4>

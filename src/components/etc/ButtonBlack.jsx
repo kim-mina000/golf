@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // icon
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const MyButton = styled.div`
 
@@ -32,9 +33,10 @@ const MyButton = styled.div`
 `;
 
 
-function ButtonBlack({ text, onClick}) {
+function ButtonBlack({ text, location}) {
+    const navigate = useNavigate();
     return (
-        <MyButton onClick={() => onClick}>
+        <MyButton onClick={()=>navigate(`/${location}`)}>
             <p>{text}</p><FaLongArrowAltRight />
         </MyButton>
     );

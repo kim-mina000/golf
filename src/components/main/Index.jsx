@@ -22,7 +22,7 @@ const Wrap = styled.div`
 `;
 
 
-const Index = ({isMobile}) => {
+const Index = ({isMobile, isTablet}) => {
 
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const Index = ({isMobile}) => {
     // 데이터
     const lessons = [
         { id: "A", title: "키즈 프로그램", description: `멤버스골프아카데미의 특화된
-            유아 골프전문 프로그램` },
+            유아 골프전문 프로그램`, },
         { id: "B", title: "주니어 프로그램", description: `초등학생을 대상으로 한
             주니어 골프 전문 프로그램램` },
         { id: "C", title: "성인 프라이빗 레슨", description: `1:1 개인 레슨으로 맞춤형
@@ -56,7 +56,7 @@ const Index = ({isMobile}) => {
         "img/partner_img08.png"
     ];
 
-    // 함수
+    // 함수 : A,B,C,D 네개의 프로그램중에 클릭한 프로그램의 이름을 lesson페이지에 전달, 이동
     const goToLesson = (des) => {
         console.log(des);        
         navigate('/lesson', {
@@ -99,12 +99,12 @@ const Index = ({isMobile}) => {
                 {isMobile && 
                     <div className="mobilePic">
                         <img src="/img/center_info2.png" alt="center_img" />
-                        <Button className="mybutton" text="자세히보기"/>
+                        <Button className="mybutton" text="자세히보기" location="centerInfo"/>
                     </div>
                 }
             </section>
 
-            {isMobile ? <MobileContent2 lessons={lessons} />
+            {isTablet ? <MobileContent2 lessons={lessons} goToLesson={goToLesson} />
             :
             <section id="content2">
                 <div className="content2_wrap">
@@ -141,7 +141,7 @@ const Index = ({isMobile}) => {
                         </li>
                     ))}
                 </ul>
-                {isMobile && <ButtonBlack className="addStyle" text={"더보기"}/>}
+                {isMobile && <ButtonBlack className="addStyle" text={"더보기"} location="instructor" />}
             </section>
 
             <section id="content4">

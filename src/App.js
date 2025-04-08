@@ -17,14 +17,15 @@ import Centerinfo from "./components/centerInfo/Centerinfo";
 function App() {
 
   const isMobile = useMediaQuery({ query: '(max-width: 599px)'});
+  const isTablet = useMediaQuery({ query: '(max-width: 1024px)'});
 
   return (
     <BrowserRouter>
       {isMobile? <MobileHeader /> : <Header />}
       <Routes>
-        <Route path='/' element={<Index isMobile={isMobile}/>}/>
+        <Route path='/' element={<Index isMobile={isMobile} isTablet={isTablet}/>} />
         <Route path='/centerInfo' element={<Centerinfo />}/>
-        <Route path='/lesson' element={<Main isMobile={isMobile}/>}/>
+        <Route path='/lesson' element={<Main isMobile={isMobile} isTablet={isTablet} />}/>
         <Route path='/instructor' element={<Instructor/>}/>
       </Routes>
       {isMobile? <MobileFooter/> : <Footer />}
