@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.section`
@@ -318,6 +318,15 @@ fuga voluptate? Eos, dolorum!`,
     useEffect(()=>{
     },[])
 
+    // 스크롤업함수
+    const targetRef = useRef(null);
+    function scrollToTop() {
+      targetRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
 
     return (
         <Wrap>
@@ -327,7 +336,7 @@ fuga voluptate? Eos, dolorum!`,
             <Container>
                 <Line />
                 <h4>인스트럭터</h4>
-                <Middle>
+                <Middle ref={targetRef}>
                     <InfoBox>
                         <div>
                             <h2>{instructorInfo.find(item => item.index === selectInstructor).name}</h2>
@@ -349,8 +358,7 @@ fuga voluptate? Eos, dolorum!`,
                         person => (
                         <li>
                             <p>{padNumber(person.index)}</p>
-                            <img src={person.img} onClick={()=>{setSelectInstructor(person.index);
-                            }}/>
+                            <img alt="인스트럭터프로필사진" src={person.img} onClick={()=>{setSelectInstructor(person.index); scrollToTop();}}/>
                         </li>
                         )
                         )}
