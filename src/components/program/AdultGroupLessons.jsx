@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { fetchLessonById } from "../../api/clientApi"; 
 
 const TitleDiv = styled.div`
     width: 20%;
@@ -26,19 +27,15 @@ const TitleDiv = styled.div`
 `;
 
 const ImageDiv = styled.div`
-    width: 100%;
-    max-height: 350px;
-    margin-top: 50px;
-    
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
 
-    @media (max-width:599px) {
-        width: 100%;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* cover → contain 으로 비율 유지 */
+  }
 `;
 
 const ContentDiv = styled.div`
@@ -180,18 +177,48 @@ const BottomRight = styled(Box)`
 
 
 const AdultGroupLessons = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [lesson, setLesson] = useState(null);
+
+    // 미디어 쿼리 감지
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    
+    useEffect(() => {
+        fetchLessonById(4).then((res) => {
+        setLesson(res.data.data);
+        });
+    }, []);
+
     return (
-<>
+        <>
             <TitleDiv>
                 <h2>Adult<br/>Premium<br/>Group<br/>Lessons</h2>
             </TitleDiv>
-            <ImageDiv><img src="img/adult_group_lessons_timg.jpg" alt="kid lesson program" /></ImageDiv>
+            <ImageDiv>
+                <img
+                    src={
+                    isMobile
+                        ? lesson?.mobileUrl
+                        : lesson?.pcUrl
+                    }
+                    alt={lesson?.title}
+                />
+            </ImageDiv>
+    
             <ContentDiv>
-                <h2>성인 프라이빗 그룹레슨</h2>
-                <h4>커리큘럼에 맞춰 진행되는 단체 골프 레슨</h4>
-                <p>1:2 ~ 1:4 단체레슨으로 매주 짜여진 커리큘럼에 맞춰 진행되는 프로그램으로<br />이론교육을 통해 골프의 전반적 이해를 도와드립니다.</p>
+                <h2>{lesson?.title}</h2>
+                <p>
+                    {lesson?.description}
+                </p>
             </ContentDiv>
-            <DetailDiv>
+            {/* <DetailDiv>
                 <img src="img/adult_group_lessons_img.jpg" alt="adult_group_lessons_img" />
                 <ul>
                     <TopLeft><Circle/>멤버스골프아카데미만의<br /> 과학적이고 체계적인 커리큘럼</TopLeft>
@@ -199,7 +226,7 @@ const AdultGroupLessons = () => {
                     <TopRight><Circle/>골프과학의 이론적이해</TopRight>
                     <BottomRight><Circle/>그룹레슨을 통한 커뮤니티 활성</BottomRight>
                 </ul>
-            </DetailDiv>
+            </DetailDiv> */}
             
         </>
     );

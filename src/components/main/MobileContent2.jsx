@@ -104,7 +104,8 @@ const StyledBox = styled.div`
 `;
 
 
-const MobileContent2 = ({lessons, goToLesson}) => {
+const MobileContent2 = ({ lessonDetails, goToLesson }) => {
+    const alphabet = ['A', 'B', 'C', 'D'];
     return (
         <Wrap>
             <h2>프로그램</h2>
@@ -113,16 +114,17 @@ const MobileContent2 = ({lessons, goToLesson}) => {
                 <Swiper
                     className='swipper_container'
                     modules={[Navigation, Pagination, A11y]}
-                    // onSlideChange={() => console.log('slide change')}
-                    // onSwiper={(swiper) => console.log(swiper)}
                 >   
                     <ul>
-                        {lessons.map((lesson, index) => (
-                            // 냥 key값 중복됨
-                            <li key={index}>
+                        {lessonDetails.map((lesson, index) => (
+                            <li key={lesson.id || index}>
                                 <StyledSwiperSlide>
-                                    <div onClick={()=>goToLesson(lesson.title)}>
-                                        <StyledBox><p>{lesson.id}</p></StyledBox>
+                                    <div onClick={() => goToLesson(lesson.categoryName)}>
+                                        <StyledBox>
+                                            <div className="alphabet_box">
+                                                <p>{alphabet[index]}</p>
+                                            </div>
+                                        </StyledBox>
                                         <h3>{lesson.title}</h3>
                                         <p>{lesson.description}</p>
                                     </div>
@@ -131,10 +133,10 @@ const MobileContent2 = ({lessons, goToLesson}) => {
                         ))}
                     </ul>
                 </Swiper>
-
             </Container>
         </Wrap>
     );
 };
+
 
 export default MobileContent2;

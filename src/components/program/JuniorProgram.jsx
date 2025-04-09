@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { fetchLessonById } from "../../api/clientApi"; 
 
 const TitleDiv = styled.div`
     width: 20%;
@@ -25,19 +26,15 @@ const TitleDiv = styled.div`
 `;
 
 const ImageDiv = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+
+  img {
     width: 100%;
-    max-height: 350px;
-    margin-top: 50px;
-
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    @media (max-width:599px) {
-        width: 100%;
-    }
+    height: 100%;
+    object-fit: contain; /* cover → contain 으로 비율 유지 */
+  }
 `;
 
 const ContentDiv = styled.div`
@@ -140,19 +137,48 @@ const Circle = styled.div`
 `;
 
 const JuniorProgram = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [lesson, setLesson] = useState(null);
+
+    // 미디어 쿼리 감지
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    
+    useEffect(() => {
+        fetchLessonById(2).then((res) => {
+        setLesson(res.data.data);
+        });
+    }, []);
+
     return (
         <>
             <TitleDiv>
                 <h2>JUNIOR<br/>PROGRAM</h2>
             </TitleDiv>
-            <ImageDiv><img src="img/junior_program_timg.jpg" alt="kid lesson program photo" /></ImageDiv>
+            <ImageDiv>
+                <img
+                    src={
+                    isMobile
+                        ? lesson?.mobileUrl
+                        : lesson?.pcUrl
+                    }
+                    alt={lesson?.title}
+                />
+            </ImageDiv>
+    
             <ContentDiv>
-                <h2>주니어 프로그램</h2>
-                <h4>아이들이 골프를 문화로 받아들일 수 있도록!</h4>
-                <p>초등학생을 대상으로 골프를 일상 속 즐거운 활동으로서 경험할 수 있도록 하는는<br/>
-                멤버스 골프 아카데미만의 특화된 주니어 프로그램입니다다.</p>
+                <h2>{lesson?.title}</h2>
+                <p>
+                    {lesson?.description}
+                </p>
             </ContentDiv>
-            <DetailDiv>
+            {/* <DetailDiv>
                 <div>
                     <Circle/>
                     <h2>01</h2>
@@ -201,7 +227,7 @@ const JuniorProgram = () => {
                         <p>놀이를 통해 골프를 이해하고,<br/>자연과 친해지는 경험을 선사합니다.</p>
                     </div>
                 </div>
-            </DetailDiv>
+            </DetailDiv> */}
             
         </>
     );

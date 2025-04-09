@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { useEffect } from "react";
 import { useNavigate, useLocation  } from "react-router-dom";
 
 // 아이콘
@@ -119,79 +118,75 @@ const SecondDownMenu = styled(DownMenu)`
 
 function Main({isMobile}) {
     const location = useLocation();
-    const data = location.state?.title || "키즈 프로그램";
+    const categoryName = location.state?.categoryName || "주니어 클래스"; // ✅ categoryName으로 변경
 
-    
-
-    const [secondSelected, setSecondSelected] = useState(data);
+    const [secondSelected, setSecondSelected] = useState(categoryName); // ✅ 문자열로 관리
     const [secondShow, setSecondshow] = useState(false);
 
-
     const navigate = useNavigate();
-
-    useEffect ( () => {
-    },[secondSelected,secondShow])
-
     
     const secondCategory = [
         {
-            index:1,
-            category:"키즈 프로그램",
-            page:<KidsProgram />
-        },{
-            index:2,
-            category:"주니어 프로그램",
-            page:<JuniorProgram />
+            category: "주니어 클래스",
+            page: <JuniorProgram />
         },
         {
-            index:3,
-            category:"성인 프라이빗 레슨",
-            page:<AdultPrivateLessons />
+            category: "키즈 클래스",
+            page: <KidsProgram />
         },
         {
-            index:4,
-            category:"성인 프리미엄 그룹레슨",
-            page:<AdultGroupLessons />
+            category: "프라이빗 클래스",
+            page: <AdultPrivateLessons />
+        },
+        {
+            category: "프로 레슨 클래스",
+            page: <AdultGroupLessons />
         }
     ];
     
-    function changeSelect(newCategory) {
-            setSecondSelected(newCategory);
-            setSecondshow(!secondShow);
-    }
-
-    function toggle(value, setValue) {
+    const toggle = (value, setValue) => {
         setValue(!value);
-    }
+    };
 
+    const changeSelect = (newCategoryName) => {
+        setSecondSelected(newCategoryName);
+        setSecondshow(false); // 드롭다운 닫기
+    };
+
+    const currentCategory = secondCategory.find(item => item.category === secondSelected);
 
     return (
         <Warp>
             <PhotoContainer>
                 <img src="img/lesson_visual.jpg" alt="lesson_visual_img" />
             </PhotoContainer>
+
             <InnerContainer>
                 <SelectBar>
-                    <StyledIoMdHome onClick={()=>navigate('/')} />
-                    {isMobile || <h2>레슨 프로그램</h2>}
-                    <h2 onClick={()=>{toggle(secondShow,setSecondshow)}}>{secondSelected}<IoIosArrowDown/></h2>
+                <StyledIoMdHome onClick={() => navigate('/')} />
+                {isMobile || <h2>레슨 프로그램</h2>}
+                <h2 onClick={() => toggle(secondShow, setSecondshow)}>
+                    {currentCategory?.category} <IoIosArrowDown />
+                </h2>
                 </SelectBar>
                 
-                {secondShow && <SecondDownMenu>
-                    <ul>
-                        {secondCategory.map( item => (
-                            <li key={item.index} onClick={() => changeSelect(item.category)} >{item.category}</li>
-                        ))}
-                    </ul>
-                </SecondDownMenu>}
+                {secondShow && (
+                    <SecondDownMenu>
+                        <ul>
+                            {secondCategory.map(item => (
+                                <li key={item.category} onClick={() => changeSelect(item.category)}>
+                                    {item.category}
+                                </li>
+                            ))}
+                        </ul>
+                    </SecondDownMenu>
+                )}
 
                 {/* 페이지 출력 */}
-                {secondCategory.filter(item => item.category === secondSelected).map(item => item.page)}
+                {currentCategory?.page}
             </InnerContainer>
-
         </Warp>
     );
-    
 }
 
 export default Main;

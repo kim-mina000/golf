@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const MenuWrap = styled.div`
     width: 100%;
@@ -14,6 +14,28 @@ const MenuWrap = styled.div`
     `;
 
 
+// 원 커지고 작아지는 애니메이션
+const shrink = keyframes`
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+    `;
+const grow = keyframes`
+    from {
+        transform: scale(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+    `;
+    
 const Circle = styled.div`
     width: 900px;
     height: 900px;
@@ -23,7 +45,8 @@ const Circle = styled.div`
     background-color: #1c2716;
     position: absolute;
     z-index: 3; 
-    `;
+    /* animation: ${({ showMenu }) => (showMenu ? grow : shrink)} 0.6s ease-out forwards; */
+`;
 
 const Container = styled.div`
     z-index: 4;
@@ -77,7 +100,7 @@ const MobileMenu = ({showMenu, navigateEvent}) => {
 
     return (
         <MenuWrap>
-            <Circle />
+            <Circle showMenu={showMenu} />
             <Container>
                 <TitleWrap>
                     <h4 onClick={()=>navigateEvent('centerInfo')}>센터소개</h4>

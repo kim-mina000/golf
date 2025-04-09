@@ -17,20 +17,21 @@ const HeaderWrap = styled.header`
 `;
 
 const MenuContainer = styled.div`
-    width: 65%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
     
     a {
         padding: 15px 30px;
         font-size: 1.25rem;
+        font-weight: bold;
     }
 `;
 
 const Logo = styled.div`
     width: 80px;
     height: 80px;
-    width: 25%;
+    width: 20%;
     text-align: center;
 
     &:hover {
@@ -47,9 +48,6 @@ const Logo = styled.div`
 
 `;
 
-
-
-
 function Header() {
 
     const navigate = useNavigate();
@@ -59,6 +57,7 @@ function Header() {
             <HeaderWrap>
                 <Logo onClick={()=> navigate("/")}><img src="img/LOGO.png" alt="logo" /></Logo>
                 <MenuContainer>
+                    <Link to="/">홈</Link>
                     <Link to="/centerInfo">센터소개</Link>
                     <Link to="/lesson">레슨프로그램</Link>
                     <Link to="/instructor">인스트럭터</Link>

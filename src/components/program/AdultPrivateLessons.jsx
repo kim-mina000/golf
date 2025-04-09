@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { fetchLessonById } from "../../api/clientApi"; 
 
 const TitleDiv = styled.div`
     width: 20%;
@@ -25,19 +26,15 @@ const TitleDiv = styled.div`
 `;
 
 const ImageDiv = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+
+  img {
     width: 100%;
-    max-height: 350px;
-    margin-top: 50px;
-
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    @media (max-width:1024px) {
-        width: 100%;
-    }
+    height: 100%;
+    object-fit: contain; /* cover → contain 으로 비율 유지 */
+  }
 `;
 
 const ContentDiv = styled.div`
@@ -163,19 +160,48 @@ const Circle = styled.div`
 
 
 const AdultPrivateLessons = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [lesson, setLesson] = useState(null);
+
+    // 미디어 쿼리 감지
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    
+    useEffect(() => {
+        fetchLessonById(3).then((res) => {
+        setLesson(res.data.data);
+        });
+    }, []);
+
     return (
         <>
             <TitleDiv>
                 <h2>Adult<br/>Private<br />Lessons</h2>
             </TitleDiv>
-            <ImageDiv><img src="img/adult_private_lessons_timg.jpg" alt="kid lesson program photo" /></ImageDiv>
+            <ImageDiv>
+                <img
+                    src={
+                    isMobile
+                        ? lesson?.mobileUrl
+                        : lesson?.pcUrl
+                    }
+                    alt={lesson?.title}
+                />
+            </ImageDiv>
+    
             <ContentDiv>
-                <h2>성인 프라이빗 레슨</h2>
-                <h4>1:1 트랙맨 분석을 통한 개인 맞춤형 프로그램</h4>
-                <p>성인을 대상으로 한 1:1 개인레슨으로 학습스타일을 고려하며, 트랙맨4를 활용하여 스윙과 구질분석,<br/>
-                스코어 관리 프로그램 등 맞춤형 교육을 통해 단기간 가장 빠른 효과를 기대할 수 있는 프로그램</p>
+                <h2>{lesson?.title}</h2>
+                <p>
+                    {lesson?.description}
+                </p>
             </ContentDiv>
-            <DetailDiv>
+            {/* <DetailDiv>
                 <DecoLine>
                     <img src="img/Trackman.png" alt="powered_by_trackman" />
                 </DecoLine>
@@ -216,7 +242,7 @@ const AdultPrivateLessons = () => {
                         </div>
                     </li>
                 </ul>
-            </DetailDiv>
+            </DetailDiv> */}
         </>
     );
 };

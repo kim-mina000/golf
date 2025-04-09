@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrap = styled.div`
+const Container = styled.div`
     width: 100px;
-    height: 250px;
+    height: 260px;
     background-color: #3A502F;
 
     position: fixed;
@@ -13,30 +13,37 @@ const Wrap = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
 
     z-index: 99;
 
     img {
-        width: 70%;
+        width: 60px;
     }
 
     a:nth-child(2) {
         width: 75%;
     }
+`;
 
+const Line = styled.div`
+    width: 80px;
+    height: 1px;
+    background-color: white;
 `;
 
 
 const FloatingMenu = () => {
     return (
-        <Wrap>
+        <Container>
             <a href="#"><img src="img/kakao_white.png" alt="kakao" /></a>
-            <a href="#"><img src="img/blog-logo-white.png" alt="blog" /></a>
-            <a href="#"><img src="img/instagram_white.png" alt="insta" /></a>
-        </Wrap>
+            <Line />
+            <a href="#"><img src="img/calander_icon.png" alt="calander" /></a>
+            <Line />
+            <a href="#"><img src="img/instagram_white2.png" alt="insta" /></a>
+        </Container>
     );
 };
 

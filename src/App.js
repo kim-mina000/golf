@@ -13,7 +13,7 @@ import Index from './components/main/Index';
 import MobileHeader from "./components/MobileHeader";
 import MobileFooter from "./components/MobileFooter";
 import Centerinfo from "./components/centerInfo/Centerinfo";
-import FloatingMenu from "./FloatingMenu";
+import FloatingMenu from "./components/FloatingMenu";
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
         <Route path='/lesson' element={<Main isMobile={isMobile} isTablet={isTablet} />}/>
         <Route path='/instructor' element={<Instructor/>}/>
       </Routes>
-      {isMobile || <FloatingMenu />}
+      {isMobile || <FloatingMenu />} 
       {isMobile ? <MobileFooter/> : <Footer />}
       
     </BrowserRouter>

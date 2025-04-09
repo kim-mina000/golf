@@ -5,7 +5,7 @@ const Wrap = styled.footer`
     width: 100vw;
     height: 300px;
     
-    border-top: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.1);
     `;
 
 const Container = styled.div`
@@ -18,7 +18,12 @@ const Container = styled.div`
 
 const LogoDiv = styled.div`
     width: 50%;
-    text-align: center;
+    text-align: left;
+
+    img {
+        width: 200px;
+        margin-left: 50px;
+    }
 `;
 
 const InfoUl = styled.ul`

@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { fetchLessonById } from "../../api/clientApi"; 
 
 const TitleDiv = styled.div`
     width: 20%;
@@ -26,21 +27,17 @@ const TitleDiv = styled.div`
 `;
 
 const ImageDiv = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+
+  img {
     width: 100%;
-    max-height: 350px;
-    margin-top: 50px;
-    
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    @media (max-width:599px) {
-        width: 100%;
-    }
-
+    height: 100%;
+    object-fit: contain; /* cover → contain 으로 비율 유지 */
+  }
 `;
+
 
 const ContentDiv = styled.div`
     width: 100%;
@@ -145,49 +142,83 @@ const Circle = styled.div`
 
 
 const KidsProgram = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [lesson, setLesson] = useState(null);
 
-    // const isMobile = MediaQuery();
+    // 미디어 쿼리 감지
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    useEffect(() => {
+      fetchLessonById(1).then((res) => {
+        setLesson(res.data.data);
+      });
+    }, []);
+  
     return (
-        <>
-            <TitleDiv>
-                <h2>KIDS<br/>PROGRAM</h2>
-            </TitleDiv>
-            <ImageDiv><img src="img/kids_program_timg.jpg" alt="kid lesson program" /></ImageDiv>
-            <ContentDiv>
-                <h2>유아 프로그램</h2>
-                <h4>4세~7세 유아를 대상으로 골프에 친숙해질 수 있는 경험을 제공합니다.</h4>
-                <p>놀이와 운동학습을 결합한 프로그램으로, 자연스럽게 골프를 접할 수 있게끔 구성된<br/>
-                멤버스 골프 아카데미만의 유아 전용 골프 교육입니다.</p>
-            </ContentDiv>
-            <DetailDiv>
-                <div>
-                    <Circle/>
-                    <h2>01</h2>
-                    <h4>진짜 골프를 즐겨요</h4>
-                    <p>친구들과 함께 PAR3, 스크린골프, 정규 18홀</p>
-                </div>
-                <div>
-                    <Circle/>
-                    <h2>02</h2>
-                    <h4>쑥쑥 자라요</h4>
-                    <p>건강하고 튼튼하게 자라도록<br/>다양한 신체활동 프로그램을 함께해요.</p>
-                </div>
-                <div>
-                    <Circle/>
-                    <h2>03</h2>
-                    <h4>엄마아빠와 함께</h4>
-                    <p>학부모님과 함께 하는 행사가 열려요.<br/>아이와 부모님 모두에게 좋은 추억을 남기세요.</p>
-                </div>
-                <div>
-                    <Circle/>
-                    <h2>04</h2>
-                    <h4>골프가 최고!</h4>
-                    <p>다양한 수상제도를 진행합니다.<br/>아이들에게 경쟁이 아닌 동기부여와 흥미를 유발시켜요.</p>
-                </div>
-            </DetailDiv>
-            
-        </>
+      <>
+        <TitleDiv>
+          <h2>KIDS<br />PROGRAM</h2>
+        </TitleDiv>
+  
+        <ImageDiv>
+            <img
+                src={
+                isMobile
+                    ? lesson?.mobileUrl
+                    : lesson?.pcUrl
+                }
+                alt={lesson?.title}
+            />
+        </ImageDiv>
+  
+        <ContentDiv>
+          <h2>{lesson?.title}</h2>
+          <p>
+            {lesson?.description}
+          </p>
+        </ContentDiv>
+  
+        {/* <DetailDiv>
+          <div>
+            <Circle />
+            <h2>01</h2>
+            <h4>진짜 골프를 즐겨요</h4>
+            <p>친구들과 함께 PAR3, 스크린골프, 정규 18홀</p>
+          </div>
+          <div>
+            <Circle />
+            <h2>02</h2>
+            <h4>쑥쑥 자라요</h4>
+            <p>
+              건강하고 튼튼하게 자라도록<br />다양한 신체활동 프로그램을 함께해요.
+            </p>
+          </div>
+          <div>
+            <Circle />
+            <h2>03</h2>
+            <h4>엄마아빠와 함께</h4>
+            <p>
+              학부모님과 함께 하는 행사가 열려요.<br />아이와 부모님 모두에게 좋은 추억을 남기세요.
+            </p>
+          </div>
+          <div>
+            <Circle />
+            <h2>04</h2>
+            <h4>골프가 최고!</h4>
+            <p>
+              다양한 수상제도를 진행합니다.<br />아이들에게 경쟁이 아닌 동기부여와 흥미를 유발시켜요.
+            </p>
+          </div>
+        </DetailDiv> */}
+      </>
     );
-};
+  };
 
 export default KidsProgram;
