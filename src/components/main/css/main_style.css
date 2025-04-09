@@ -1,17 +1,21 @@
-@font-face {
+/* @font-face {
     font-family: 'HallymGothic-Regular';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-}
+} */
 
 body {
     width: 100%;
     margin: auto;
-    font-family: 'HallymGothic-Regular';
+
     position: relative;
     overflow-x: hidden;
 }
+
+
+.subtitle{    font-family: 'HallymGothic-Regular';   }
+.colorWhite {    color: #fff;   }
 
 /*  */
 
@@ -126,10 +130,10 @@ body {
 }
 
 #content1 .pic {
-    max-width: 860px;
-    max-height:500px;
+    max-width: 746px;
+    max-height:459px;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 60px;
 
 }
 
@@ -140,16 +144,18 @@ body {
 }
 
 #content1 .p {
-    line-height: 1.5;
-    font-size: 1.2rem;
+    line-height: 1.6;
+    font-size: 1.7rem;
+    font-weight: 550;
 
     
 }
 
 #content1 .strong {
-    font-weight: bold;
-    font-size: 1.5rem;
+    /* font-weight: bold; */
+    font-size: 2rem;
     word-break: keep-all;
+    font-weight:800;
     
 }
 
@@ -179,8 +185,8 @@ body {
 /*  */
 
 #content2 {
-    margin-top: 80px;
-    padding-top: 40px;
+    margin-top: 45px;
+    padding-top: 45px;
     width: 100vw;
     height: 700px;
     background-color: #1C2716;
@@ -191,7 +197,7 @@ body {
 }
 
 #content2 .content2_wrap {
-    width: 1200px;
+    max-width: 1200px;
     height: 100%;
     margin: auto;    
     
@@ -203,12 +209,7 @@ body {
     
 }
 
-#content2 .content2_wrap .title{
-    color: #fff;
-}
-#content2 .content2_wrap .subtitle{
-    color: #fff;
-}
+
 
 #content2 .lesson_pick {
     width: 100%;
@@ -242,8 +243,8 @@ body {
     content: "";
     display: block;
     width: 1px;
-    height: 75%;
-    background: #fff;
+    height: 81%;
+    background: #ffffff70;
     position: absolute;
     bottom: 0;
     /* margin: 8px 0; */
@@ -271,9 +272,9 @@ body {
 
 
 #content2 .content2_wrap .alphabet_box {
-    width: 30px;
-    height: 20px;
-    border: 0.5px solid #fff;
+    width: 40px;
+    height: 25px;
+    border: 0.5px solid #ffffff70;
     
     display: flex;
     justify-content: center;
@@ -284,16 +285,16 @@ body {
 }
 
 #content2 .content2_wrap .line {
-    width: 100px;
-    height: 0.5px;
-    background-color: #fff;
+    width: 145px;
+    height: 0.1px;
+    background-color: #ffffff70;
 }
 
 
 /*  */
 
 #content3 {
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
     padding-top: 80px;
     display: flex;
@@ -444,4 +445,7 @@ body {
     #content4 {
         margin-top: 15px;
     }
+
+    #content4 li img{}
+
 }

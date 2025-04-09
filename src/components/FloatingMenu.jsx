@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    width: 100px;
-    height: 260px;
+    width: 70px;
+    height: 230px;
     background-color: #3A502F;
 
     position: fixed;
     right: 0;
-    top: 50%;
+    top: 30%;
     translate: calc(-50%);
 
     display: flex;
@@ -20,7 +20,7 @@ const Container = styled.div`
     z-index: 99;
 
     img {
-        width: 60px;
+        width: 50px;
     }
 
     a:nth-child(2) {
@@ -29,7 +29,7 @@ const Container = styled.div`
 `;
 
 const Line = styled.div`
-    width: 80px;
+    width: 50px;
     height: 1px;
     background-color: white;
 `;

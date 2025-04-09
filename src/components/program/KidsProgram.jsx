@@ -2,29 +2,29 @@ import { useEffect, useState } from "react";
 import styled from 'styled-components';
 import { fetchLessonById } from "../../api/clientApi"; 
 
-const TitleDiv = styled.div`
-    width: 20%;
-    height: 20%;
-    position: absolute;
-    top: 85px;
-    left: 35px;
-    background-color: #3a502f;
+// const TitleDiv = styled.div`
+//     width: 20%;
+//     height: 20%;
+//     position: absolute;
+//     top: 85px;
+//     left: 35px;
+//     background-color: #3a502f;
 
-    text-align: end;
-    font-size: 2rem;
-    h2 {
-        color: #fff;
-        padding: 15px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+//     text-align: end;
+//     font-size: 2rem;
+//     h2 {
+//         color: #fff;
+//         padding: 15px;
+//         position: absolute;
+//         bottom: 0;
+//         right: 0;
+//     }
     
-    @media (max-width:599px) {
-        width: 50%;
-        height: 100px;
-    }
-`;
+//     @media (max-width:599px) {
+//         width: 50%;
+//         height: 100px;
+//     }
+// `;
 
 const ImageDiv = styled.div`
   width: 100%;
@@ -163,9 +163,9 @@ const KidsProgram = () => {
   
     return (
       <>
-        <TitleDiv>
+        {/* <TitleDiv>
           <h2>KIDS<br />PROGRAM</h2>
-        </TitleDiv>
+        </TitleDiv> */}
   
         <ImageDiv>
             <img

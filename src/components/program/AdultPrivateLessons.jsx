@@ -2,28 +2,28 @@ import { useEffect, useState } from "react";
 import styled from 'styled-components';
 import { fetchLessonById } from "../../api/clientApi"; 
 
-const TitleDiv = styled.div`
-    width: 20%;
-    height: 20%;
-    position: absolute;
-    top: 85px;
-    left: 35px;
-    background-color: #3a502f;
+// const TitleDiv = styled.div`
+//     width: 20%;
+//     height: 20%;
+//     position: absolute;
+//     top: 85px;
+//     left: 35px;
+//     background-color: #3a502f;
 
-    text-align: end;
-    font-size: 2rem;
-    h2 {
-        color: #fff;
-        padding: 15px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-    @media (max-width:1024px) {
-        width: 50%;
-        height: 130px;
-    }
-`;
+//     text-align: end;
+//     font-size: 2rem;
+//     h2 {
+//         color: #fff;
+//         padding: 15px;
+//         position: absolute;
+//         bottom: 0;
+//         right: 0;
+//     }
+//     @media (max-width:1024px) {
+//         width: 50%;
+//         height: 130px;
+//     }
+// `;
 
 const ImageDiv = styled.div`
   width: 100%;
@@ -181,9 +181,9 @@ const AdultPrivateLessons = () => {
 
     return (
         <>
-            <TitleDiv>
+            {/* <TitleDiv>
                 <h2>Adult<br/>Private<br />Lessons</h2>
-            </TitleDiv>
+            </TitleDiv> */}
             <ImageDiv>
                 <img
                     src={

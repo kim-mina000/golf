@@ -11,8 +11,24 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    font-family: 'IBMPlexSansKR-Regular';
 `;
 
+const ImgBox = styled.div`
+    width: 750px;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 750px;
+        height: 500px;
+        object-fit: cover;
+    }
+`;
 
 function Centerinfo() {
 
@@ -24,7 +40,7 @@ function Centerinfo() {
 
             <section id="contentB2">
                 <div className="line"></div>
-                <h2 className="title">인삿말</h2>
+                <h2 className="title">인사말</h2>
                 <div className="welcome_container">
                     <div id="welcome_decoration"></div>
                     <h3 className="left bold">골프는<br />즐겁게 배워야 한다는 것,<br />멤버스 골프 아카데미의<br />철학입니다.</h3>
@@ -37,7 +53,7 @@ function Centerinfo() {
             <section id="contentB3">
                 <img src="img/LOGO.png" alt="logo" />
                 <h3>학생 중심의 LPGA 철학을 바탕으로 한<br />체계적인 교육을 지향합니다.</h3>
-                <ul>
+                {/* <ul>
                     <li className="education_container bg_deep">
                         <h4 className="light">Leadership<br />리더십</h4>
                         <img src="img/readership_icon.png" alt="redership icon" />
@@ -62,7 +78,10 @@ function Centerinfo() {
                         <h4 className="deep">Psychological<br />Analysis<br />심리적분석</h4>
                         <img src="img/psychological_icon.png" alt="Psychological icon" />
                     </li>
-                </ul>
+                </ul> */}
+                <ImgBox>
+                    <img src="img/center_info_detail.png" alt="centerinfo_detail" />
+                </ImgBox>
             </section>
 
             <section id="contentB4">

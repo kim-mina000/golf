@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useNavigate, useLocation  } from "react-router-dom";
 
 // 아이콘
-import { IoMdHome } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
+import { SlHome } from "react-icons/sl";
+import { RxTriangleDown } from "react-icons/rx";
 
 // 이미지
 import KidsProgram from "./KidsProgram";
@@ -17,18 +17,21 @@ const Warp = styled.div`
     height: 100%;
     /* 아래 여백 조절 */
     margin-bottom: 130px;
+    
 
     
 `;
 
 const PhotoContainer = styled.div`
-    width: 100vw;
-    height: 350px;
-
+    max-width: 1200px;
+    height: 400px;
+    margin: auto;
+    
+    
     img {
         width: 100%;
-        height: 350px;
-        background-size: cover;
+        height: 100%;
+        object-fit: cover;
     }
 `;
 
@@ -40,15 +43,17 @@ const InnerContainer = styled.div`
 
 const SelectBar = styled.div`
     width: 100%;
-    height: 60px;
+    height: 48px;
     background-color: #1c2716;
 
     display: flex;
     justify-content: start;
     align-items: center;
 
+    margin-top: 8px;
+
     h2 {
-        width: 200px;
+        width: 243px;
         height: 100%;
         display: flex;
         justify-content: space-between;
@@ -58,19 +63,17 @@ const SelectBar = styled.div`
         color: #fff;
         border-left: 1px solid white;
         }
-    h2+h2 {
-        border-right: 1px solid white;
-    }
-
     h2:hover {
         cursor: pointer;
     }
 `;
 
-const StyledIoMdHome = styled(IoMdHome)`
+const StyledSlHome = styled(SlHome)`
     font-size: 2rem;
     color: white;
-    width: 60px;
+    width: 24px;
+    padding-left: calc((86px - 24px)/2);
+    padding-right: calc((86px - 24px)/2);
 
 
     &:hover {
@@ -128,19 +131,23 @@ function Main({isMobile}) {
     const secondCategory = [
         {
             category: "주니어 클래스",
-            page: <JuniorProgram />
+            page: <JuniorProgram />,
+            img: "img/junior_program_timg.jpg"
         },
         {
             category: "키즈 클래스",
-            page: <KidsProgram />
+            page: <KidsProgram />,
+            img: "img/kids_program_timg.jpg"
         },
         {
             category: "프라이빗 클래스",
-            page: <AdultPrivateLessons />
+            page: <AdultPrivateLessons />,
+            img: "img/ault_private.png"
         },
         {
             category: "프로 레슨 클래스",
-            page: <AdultGroupLessons />
+            page: <AdultGroupLessons />,
+            img: "img/adult_premeium_group.png"
         }
     ];
     
@@ -154,19 +161,21 @@ function Main({isMobile}) {
     };
 
     const currentCategory = secondCategory.find(item => item.category === secondSelected);
+    console.log(currentCategory);
+    
 
     return (
         <Warp>
             <PhotoContainer>
-                <img src="img/lesson_visual.jpg" alt="lesson_visual_img" />
+                <img src={currentCategory.img} alt="lesson_visual_img" />
             </PhotoContainer>
 
             <InnerContainer>
                 <SelectBar>
-                <StyledIoMdHome onClick={() => navigate('/')} />
-                {isMobile || <h2>레슨 프로그램</h2>}
+                <StyledSlHome onClick={() => navigate('/')} />
+                {isMobile || <h2>레슨 프로그램<RxTriangleDown /></h2>}
                 <h2 onClick={() => toggle(secondShow, setSecondshow)}>
-                    {currentCategory?.category} <IoIosArrowDown />
+                    {currentCategory?.category} <RxTriangleDown />
                 </h2>
                 </SelectBar>
                 

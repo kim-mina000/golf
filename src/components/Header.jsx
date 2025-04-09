@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 const Wrap = styled.div`
     width: 100vw;
     margin: auto;
+    font-family: 'IBMPlexSansKR-Regular';
     `;
 
 const HeaderWrap = styled.header`
     max-width: 1200px;
-    height: 120px;
+    height: 148px;
     
     display: flex;
     align-items: center;
@@ -23,14 +24,14 @@ const MenuContainer = styled.div`
     
     a {
         padding: 15px 30px;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: bold;
     }
 `;
 
 const Logo = styled.div`
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     width: 20%;
     text-align: center;
 
@@ -39,7 +40,7 @@ const Logo = styled.div`
     }
 
     img {
-        width: 80px;
+        width: 100px;
         background-image: url('../LOGO.png');
         background-size: cover;
         background-position: center;

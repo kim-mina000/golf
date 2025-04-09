@@ -6,6 +6,7 @@ const Wrap = styled.footer`
     height: 300px;
     
     border-top: 1px solid rgba(0,0,0,0.1);
+    font-family: 'IBMPlexSansKR-Regular';;
     `;
 
 const Container = styled.div`
@@ -35,10 +36,12 @@ const InfoUl = styled.ul`
     flex-wrap: wrap;
     padding-top: 40px;
 
+    font-weight: bold;
+
     li {
         width: 50%;
         height: 50px;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
 
         line-height: 150%;
 

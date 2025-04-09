@@ -20,11 +20,19 @@ import "swiper/css/autoplay";
 import Button from '../etc/Button';
 import MobileContent2 from './MobileContent2';
 import ButtonBlack from '../etc/ButtonBlack';
+import ScrollUpButton from "../etc/ScrollUpButton";
 
 
 const Wrap = styled.div`
     width: 100vw;
     margin: auto;
+    font-family: 'IBMPlexSansKR-Regular';
+    `;
+
+const ScrollButtonWrap = styled.div`
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
 `;
 
 
@@ -133,7 +141,7 @@ const Index = ({isMobile, isTablet}) => {
                 {isMobile || <h2 className="title">센터소개</h2>} 
                     <p className={isMobile?"mobile_p":"p"}>
                     멤버스 골프 아카데미는 LPGA 티칭 메뉴얼을 기반으로 한 <br />
-                    <span className="strong">체계적인 커리큘럼과 검증된 프로 강사진의 맞춤형 레슨을 통해</span> <br />
+                    <span className="strong">체계적인 커리큘럼과 검증된 프로 강사진의 맞춤형 레슨</span>을 통해<br />
                     즐겁고 효과적인 골프 경험을 제공합니다.
                 </p>
                 {isMobile || 
@@ -154,8 +162,8 @@ const Index = ({isMobile, isTablet}) => {
             :
             <section id="content2">
                 <div className="content2_wrap">
-                    <h2 className="title">프로그램</h2>
-                    <h4 className="subtitle">골프는 즐겁게 배워야 한다는 것, 멤버스골프아카데미의 철학입니다.</h4>
+                    <h2 className="title colorWhite">프로그램</h2>
+                    <h4 className="subtitle colorWhite">골프는 즐겁게 배워야 한다는 것, 멤버스골프아카데미의 철학입니다.</h4>
                     <ul className="lesson_pick">
                         {lessonDetails.map((lesson, index) => (
                             <li key={lesson.id || index}>
@@ -204,6 +212,9 @@ const Index = ({isMobile, isTablet}) => {
                     </ul>
                 </div>
             </section>
+            <ScrollButtonWrap>
+                <ScrollUpButton />
+            </ScrollButtonWrap>
         </Wrap>
     );
 };

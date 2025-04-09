@@ -18,7 +18,7 @@ const Container = styled.div`
 
   & > h4 {
     font-weight: bold;
-    padding: 20px;
+    padding-top: 30px;
     font-size: 1.5rem;
   }
 
@@ -48,16 +48,18 @@ const ImgDiv = styled.div`
 `;
 
 const Line = styled.div`
-    width: 200px;
-    height: 1px;
+    width: 240px;
+    height: 3px;
     background-color: rgba(0,0,0,0.3);
 `;
 
 const Middle = styled.div`
-  margin-top: 80px;
+
+  margin-top: 96px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
+  height: 700px;
   display: flex;
 
   @media (max-width: 768px) {
@@ -67,26 +69,26 @@ const Middle = styled.div`
 `;
 
 const InfoBox = styled.div`
-    width: 60%;
-    height: 500px;
+    width: calc(100% * 700 / 1200);
+    height: 700px;
     
     /* 이름 포지션 */
     div:first-child {
         width: 100%;
-        height: 35%;
+        height: calc(100% * 200 / 700);
         display: flex;
         position: relative;
 
         h2 {
-            padding-left: 40px;
+            padding-left: 60px;
             padding-top: 20px;
             font-weight: bold;
             font-size: 2.5rem;
         }
-
         span {
-            padding-left: 15px;
-            padding-top: 45px;
+            padding-top: 43px;
+            padding-left: 20px;
+
         }
     @media (max-width: 768px) {
         flex-direction: column;
@@ -108,25 +110,22 @@ const InfoBox = styled.div`
     /* 약력 */
     div:nth-child(2){
         width: 100%;
-        height: 80%;
-
-        /* padding: 20px 40px; */
+        height: calc(100% * 500 / 700);
 
         border-top: 1px solid rgba(0,0,0,0.3);
         display: flex;
         white-space: pre-wrap;
-        text-align: start;
+        padding-top: 45px;
 
         span {
-            padding-left: 40px;
-            padding-top: 20px;
+            padding-left: 60px;
             font-weight: bold;
         }
 
         p {
-            padding-top: 20px;
-            margin-left: 15px;
-            line-height: 1.5;
+            margin-left: 24px;
+            line-height: 1.8;
+            color: #969696;
         }
     @media (max-width: 768px) {
       flex-direction: column;
@@ -150,7 +149,8 @@ const InfoBox = styled.div`
 `;
 
 const ImgBox = styled.div`
-    width: 40%;
+    width: calc(100% * 500 / 1200);
+    height: 700px;
     border-left: 1px solid rgba(0,0,0,0.3);
     position: relative;
     
@@ -181,10 +181,14 @@ const MoreBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 
   h4 {
     font-weight: bold;
-    padding: 10px 40px 0 40px;
+    padding: 20px 60px 0 60px;
   }
 
   ul {
@@ -286,7 +290,6 @@ const Instructor = () => {
             </div>
           </InfoBox>
           <ImgBox>
-            <span>{instructorInfo.find((item) => item.id === selectInstructor)?.title}</span>
             <img
               src={instructorInfo.find((item) => item.id === selectInstructor)?.thumbnailUrl}
               alt="프로필이미지"

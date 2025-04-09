@@ -2,20 +2,20 @@
 /* contents */
 /* 공통조건 */
 .line {
-    width: 250px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0.3);
+    width: 282px;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .title {
-    font-size: 1.5rem; 
+    font-size: 1.8rem; 
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .bold {
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 2.1rem;
     line-height: 1.5;
     white-space: nowrap;
     
@@ -59,27 +59,31 @@
 #contentB2 {
     margin-top: 80px;
 
-    width: 50%;
+    max-width: 1200px;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: none;
-
 }
+
+#contentB2>h2 {
+    margin-bottom: 80px;
+}
+
 #contentB2>.line {
     margin-bottom: 40px;
 }
 
 #contentB2 #welcome_decoration {
-    width: 270px;
-    height: 20px;
+    width: 370px;
+    height: 25px;
     background-color: #b9bdb8;
     position: absolute;
     z-index: -10;
-    top: 50px;
-    left: 10px;
+    top: 75px;
+    left: 22px;
 }
 
 #contentB2 .welcome_container {
@@ -88,21 +92,21 @@
 }
 
 #contentB2 .welcome_container .left{
-    
-    margin: 0 1.5rem;
+    margin: 0 40px;
 }
 
 #contentB2 .welcome_container .right{
-    margin-top: 1.5rem;
     background-color: #1c2716;
 }
 
 #contentB2 .welcome_container .right p{
-    padding: 30px;
+    padding: 85px 80px;
     line-height: 1.4;
     color: white;
     font-weight: 500;
-    text-wrap: pretty;
+    word-break: keep-all;
+    text-align: justify;
+    font-size: 1.6rem;
 }
 
 
@@ -115,24 +119,24 @@
 
 
 #contentB3 {
-    margin-top: 120px;
+    margin-top: 125px;
 
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 85px;
     justify-content: center;
     align-items: center;
 }
 
-#contentB3 img {
-    width: 150px;
+#contentB3>img {
+    width: 170px;
 }
 
 #contentB3>h3 {
     text-align: center;
     font-weight: bold;
     line-height: 1.6;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 #contentB3 ul {
@@ -203,7 +207,7 @@
 
 #contentB4 {
     margin-top: 100px;
-    padding: 30px 0 30px 0;
+    padding: 45px 0 45px 0;
     
     width: 100vw;
     height: fit-content;
@@ -224,27 +228,28 @@
 }
 
 #contentB4 p {
+    font-size: 1.4rem;
     width: 70%;
     line-height: 2;
 }
 
 #contentB5 {
     width: 55%;
-    height: 950px;
-    margin-top: 100px;
+    height: calc(910px + 223px);
+    margin-top: 130px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
 #contentB5>.line {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 #contentB5 .route_container {
     width: 100%;
     height: 250px;
-    margin-top: 40px;
+    margin-top: 88px;
 
     display: flex;
     justify-content: center;
@@ -267,9 +272,9 @@
 }
 
 #contentB5 .route_container .right .icon_container img{
-    width: 50px;
-    height: 50px;
-    padding: 15px;
+    width: 30px;
+    height: 30px;
+    padding: 0 15px 15px 15px;
 }
 
 #contentB5 .route_container .right .icon_container h5{
@@ -283,9 +288,8 @@
 }
 
 #contentB5 .map_container {
-    margin-top: 100px;
-    width: 80%;
-    height: 40%;
+    max-width: 978px;
+    max-height: 495px;
     position: relative;
 
     overflow: hidden;
